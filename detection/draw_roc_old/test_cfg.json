@@ -1,0 +1,159 @@
+{
+  "oldobj": {
+   "iou_thr": 1e-12,
+   "images_dir": "/home/xuefei/work/FOD/ROC/testdata/oldobj/noobj",
+   "gt": {
+       "txt_loc": "/home/xuefei/work/FOD/ROC/testdata/oldobj/oldobj_gt.txt",
+       "label_len": 5,
+       "label_format": "label_x1_y1_x2_y2",
+       "class_lst": ["obj"]
+   },
+   "dt": {
+       "txt_loc": "/home/xuefei/work/FOD/ROC/testdata/oldobj/oldobj_test.txt",
+       "label_len": 6,
+       "label_format": "x1_y1_x2_y2_label_score",
+       "class_lst": ["obj"]
+   }
+  },
+  "phoneobj": {
+   "iou_thr": 1e-12,
+   "images_dir": "/home/xuefei/work/FOD/ROC/testdata/phoneobj/noobj",
+   "gt": {
+       "txt_loc": "/home/xuefei/work/FOD/ROC/testdata/phoneobj/phoneobj_gt.txt",
+       "label_len": 5,
+       "label_format": "label_x1_y1_x2_y2",
+       "class_lst": ["obj"]
+   },
+   "dt": {
+       "txt_loc": "/home/xuefei/work/FOD/ROC/testdata/phoneobj/phoneobj_test.txt",
+       "label_len": 6,
+       "label_format": "x1_y1_x2_y2_label_score",
+       "class_lst": ["obj"]
+   }
+  },
+  "toolobj": {
+   "iou_thr": 1e-12,
+   "images_dir": "/media/lhl/File/fod/1212/data3_imagefortest100_concat",
+   "gt": {
+       "txt_loc": "gt.txt",
+       "label_len": 5,
+       "label_format": "x1_y1_x2_y2_label"
+   },
+   "dt": {
+       "txt_loc": "gt.txt",
+       "label_len": 5,
+       "label_format": "x1_y1_x2_y2_label"
+   }
+  },
+  "setsizeobj": {
+   "iou_thr": 1e-12,
+   "images_dir": "/media/lhl/File/fod/1212/data3_imagefortest100_concat",
+   "gt": {
+       "txt_loc": "gt.txt",
+       "label_len": 5,
+       "label_format": "x1_y1_x2_y2_label"
+   },
+   "dt": {
+       "txt_loc": "gt.txt",
+       "label_len": 5,
+       "label_format": "x1_y1_x2_y2_label"
+   }
+  },
+  "toolobj_1214": {
+   "iou_thr": 1e-12,
+   "images_dir": "/home/xuefei/work/FOD/ROC/testdata/toolobj_1214/noobj",
+   "gt": {
+       "txt_loc": "/home/xuefei/work/FOD/ROC/testdata/toolobj_1214/toolobj_1214_gt.txt",
+       "label_len": 5,
+       "label_format": "label_x1_y1_x2_y2",
+       "class_lst": ["obj"]
+   },
+   "dt": {
+       "txt_loc": "/home/xuefei/work/detect_roc/test_set/400/400_test_87_new.txt",
+       "label_len": 6,
+       "label_format": "x1_y1_x2_y2_label_score",
+       "class_lst": ["obj"]
+   }
+  },
+   "400": {
+   "iou_thr": 1e-12,
+   "images_dir": "/home/xuefei/work/detect_roc/test_set/400/images",
+   "gt": {
+       "txt_loc": "/home/xuefei/work/detect_roc/test_set/400/87_gt.txt",
+       "label_len": 5,
+       "label_format": "y1_x1_y2_x2_label",
+       "class_lst": ["obj"]
+   },
+   "dt": {
+       "txt_loc": "/media/xuefei/新加卷/work/Project/FOD/testdata/400/400_test_87_new.txt",
+       "label_len": 6,
+       "label_format": "x1_y1_x2_y2_label_score",
+       "class_lst": ["obj"]
+   }
+  },
+   "oldobj_test": {
+   "iou_thr": 1e-12,
+   "images_dir": "/home/xuefei/work/FOD/ROC/testdata/oldobj_test/test",
+   "gt": {
+       "txt_loc": "/home/xuefei/work/FOD/ROC/testdata/oldobj_test/oldobj_gt.txt",
+       "label_len": 5,
+       "label_format": "label_x1_y1_x2_y2",
+       "class_lst": ["obj"]
+   },
+   "dt": {
+       "txt_loc": "/home/xuefei/work/FOD/ROC/testdata/oldobj_test/oldobj_test.txt",
+       "label_len": 6,
+       "label_format": "x1_y1_x2_y2_label_score",
+       "class_lst": ["obj"]
+   }
+  },
+     "400_test": {
+   "iou_thr": 1e-12,
+   "images_dir": "/home/xuefei/work/FOD/ROC/testdata/400_test/images_test",
+   "gt": {
+       "txt_loc": "/home/xuefei/work/FOD/ROC/testdata/400_test/87_gt.txt",
+       "label_len": 5,
+       "label_format": "label_x1_y1_x2_y2",
+       "class_lst": ["excavator"]
+   },
+   "dt": {
+       "txt_loc": "/home/xuefei/work/FOD/ROC/testdata/400_test/400_test_87.txt",
+       "label_len": 6,
+       "label_format": "x1_y1_x2_y2_label_score",
+       "class_lst": ["obj"]
+   }
+  },
+  "excavator": {
+   "iou_thr": 0.1,
+   "images_dir": "/media/aubopiazt/BA6ED4596ED40FCD/ubuntufile/ObjectDetect/ROCTest/test_all/",
+   "labelIndex": ["background", "excavator", "truck", "wheel"],
+   "gt": {
+       "txt_loc": "/media/aubopiazt/BA6ED4596ED40FCD/ubuntufile/ObjectDetect/ROCTest/excavator_gt.txt",
+       "label_len": 5,
+       "label_format": "label_x1_y1_x2_y2",
+       "class_lst": ["excavator"]
+   },
+   "dt": {
+       "txt_loc": "/media/aubopiazt/BA6ED4596ED40FCD/ubuntufile/ObjectDetect/ROCTest/excavator_dt.txt",
+       "label_len": 6,
+       "label_format": "score_label_x1_y1_x2_y2",
+       "class_lst": ["excavator"]
+   }
+  },
+  "truck_excavator": {
+   "iou_thr": 0.1,
+   "images_dir": "/home/goalin/project/Datas/waterMassData/lmdb/test/",
+   "gt": {
+       "txt_loc": "/home/goalin/project/Datas/waterMassData/lmdb/test/truck_excavator_gt.txt",
+       "label_len": 5,
+       "label_format": "label_x1_y1_x2_y2",
+       "class_lst": ["obj"]
+   },
+   "dt": {
+       "txt_loc": "/home/goalin/project/Datas/waterMassData/lmdb/test/truck_excavator_gt_dt.txt",
+       "label_len": 6,
+       "label_format": "score_label_x1_y1_x2_y2",
+       "class_lst": ["obj"]
+   }
+  }
+}

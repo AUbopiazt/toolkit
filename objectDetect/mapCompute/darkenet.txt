@@ -1,0 +1,1 @@
+./darknet detector valid cfg/obj1.data cfg/yolo-obj1.cfg backup/yolo-obj1_10000.weights

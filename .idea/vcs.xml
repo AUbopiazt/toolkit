@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$/objectDetect/kmeans-anchor-boxes" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/objectDetect/kmeans-anchor-boxes/darknet_scripts" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/objectDetect/mapCompute/prepare_detection_dataset" vcs="Git" />
+  </component>
+</project>
