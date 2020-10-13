@@ -1,0 +1,11 @@
+***********************挂载****************************
+https://blog.csdn.net/llwy1428/article/details/93848439
+  
+**********cuda 安装依赖*************************
+sudo yum install protobuf-devel leveldb-devel snappy-devel opencv-devel boost-devel hdf5-devel
+https://blog.csdn.net/cumt08113684/article/details/51861678
+
+*************hdf5下载***************************
+https://portal.hdfgroup.org/display/support/HDF5+1.8.21
+https://www.cnblogs.com/xuyuan77/p/7777407.html
+
