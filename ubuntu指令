@@ -1,0 +1,316 @@
+*****cudnn更换*****
+sudo cp cudnn.h /usr/local/cuda/include/
+sudo cp lib* /usr/local/cuda/lib64/
+cd /usr/local/cuda/lib64/
+sudo rm -rf libcudnn.so libcudnn.so.5
+sudo ln -s libcudnn.so.5.1.10 libcudnn.so.5
+sudo ln -s libcudnn.so.5 libcudnn.so
+
+
+*****清华镜像*****
+pip install -i https://pypi.tuna.tsinghua.edu.cn/simple opencv_python==3.2.0.7
+阿里云 -i http://mirrors.aliyun.com/pypi/simple/  --trusted-host mirrors.aliyun.com
+
+*****tensorboardx*****
+(py3)tensorboard --logdir=runs
+
+*****系统环境*****
+sudo gedit ~/.bashrc
+source ~/.bashrc
+
+*****生成caffe.pb.h*****
+protoc --cpp_out=caffe/include/caffe/ caffe.proto
+
+
+*****缺io.h*****
+find /usr/include -name "io.h"
+sudo cp /usr/include/x86_64-linux-gnu/sys/io.h /usr/include
+
+*****缺nccl2.0*****
+sudo dpkg -i nvidia-machine-learning-repo-ubuntu1604_1.0.0-1_amd64.deb
+sudo apt update
+sudo apt-get install libnccl2=2.2.13-1+cuda8.0 libnccl-dev=2.2.13-1+cuda8.0
+
+*****切换成cuda 9.0/8.0****
+cat /usr/local/cuda/include/cudnn.h | grep CUDNN_MAJOR -A 2
+cat /usr/local/cuda/version.txt
+sudo rm -rf /usr/local/cuda
+sudo ln -s /usr/local/cuda-9.0 /usr/local/cuda
+
+DaG4ErMrmdg5
+
+******cuda caffe 编译版本************
+# For CUDA < 6.0, comment the *_50 through *_61 lines for compatibility.
+# For CUDA < 8.0, comment the *_60 and *_61 lines for compatibility.
+# For CUDA >= 9.0, comment the *_20 and *_21 lines for compatibility.
+
+******寻找当前目录下所有.h文件下含“gflags”的文件************
+find ./ -name 'CMakeLists.txt' | xargs grep 'OPENCV'
+
+******protobuff安装与卸载************
+./autogen.sh
+./configure
+make
+sudo make install
+
+******ssh远程服务器************
+连接服务器 ssh install@10.0.14.49
+本地打开终端，直接上传 scp ReID.h install@10.0.14.49:/home/install/demo-xm
+
+ssh root@10.0.13.48
+
+
+******压缩解压*****************************************************************************************
+tar
+解包：tar xvf FileName.tar
+打包：tar cvf FileName.tar DirName
+（注：tar是打包，不是压缩！）
+———————————————
+.gz
+解压1：gunzip FileName.gz
+解压2：gzip -d FileName.gz
+压缩：gzip FileName
+.tar.gz
+解压：tar zxvf FileName.tar.gz
+压缩：tar zcvf FileName.tar.gz DirName
+———————————————
+.bz2
+解压1：bzip2 -d FileName.bz2
+解压2：bunzip2 FileName.bz2
+压缩： bzip2 -z FileName
+.tar.bz2
+解压：tar jxvf FileName.tar.bz2
+压缩：tar jcvf FileName.tar.bz2 DirName
+———————————————
+.bz
+解压1：bzip2 -d FileName.bz
+解压2：bunzip2 FileName.bz
+
+.tar.bz
+解压：tar jxvf FileName.tar.bz
+———————————————
+.Z
+解压：uncompress FileName.Z
+压缩：compress FileName
+.tar.Z
+解压：tar Zxvf FileName.tar.Z
+压缩：tar Zcvf FileName.tar.Z DirName
+———————————————
+.tgz
+解压：tar zxvf FileName.tgz
+
+.tar.tgz
+解压：tar zxvf FileName.tar.tgz
+压缩：tar zcvf FileName.tar.tgz FileName
+———————————————
+.zip
+解压：unzip FileName.zip
+压缩：zip FileName.zip DirName
+———————————————
+.rar
+解压：rar a FileName.rar
+压缩：rar e FileName.rar
+
+unrar x 文件名
+———————————————
+.lha
+解压：lha -e FileName.lha
+压缩：lha -a FileName.lha FileName
+
+******查看链接***************************************************************************************
+ldd /usr/local/lib/libopencv_calib3d.so
+
+******便签*************
+indicator-stickynotes
+c52386971
+******安装pytorch***********
+pip install -i https://pypi.tuna.tsinghua.edu.cn/simple http://download.pytorch.org/whl/cu80/torch-0.4.1-cp36-cp36m-linux_x86_64.whl
+
+******打开jumpyter（在特定环境 如python2 或者 python3中打开）***********
+jupyter notebook --ip=0.0.0.0 --port=8000
+输入网址：http://0.0.0.0:8000
+
+
+******查找指定函数的头文件***********
+man 3 sleep 查找sleep函数的头文件
+
+
+***********gihub下载慢的问题***********
+
+# sudo gedit /etc/hosts
+
+1) 用浏览器访问 IPAddress.com or http://tool.chinaz.com 使用 IP Lookup 工具获得github.com和github.global.ssl.fastly.net域名的ip地址, 找到IP对应的TTL值应该最小的那个IP地址
+2) sudo gedit /etc/hosts，末尾添加下面内容并保存
+ip1 http://github.global.ssl.fastly.net
+ip2 http://github.com
+
+################################################
+69.171.244.15 http://github.global.ssl.fastly.net
+13.229.188.59 http://github.com
+################################################
+
+***********alias使用系统默认python版本切换***************
+alias python=python3
+alias anaconda2='export PATH=/home/aubopiazt/anaconda2/bin:$PATH'
+alias gpu='watch -n 1 -d nvidia-smi'
+
+***********ubuntu挂载wind盘失败***************
+sudo ntfsfix /dev/sda3
+
+***********ubuntu pytorch可视化 在run底下***************
+版本信息：
+tensorboardX=1.8
+torch=1.1.0
+torchvision=0.3.0
+tensorboard=1.14.0
+tensorflow=1.1.0
+tensorboard --logdir ./event
+
+***********cmakelist 指定opencv版本***************
+set(OpenCV_DIR "/your_opencv_path/opencv-3.2.0/build")
+find_package(OpenCV REQUIRED)
+include_directories(${OpenCV_INCLUDE_DIRS})
+
+**********编译libtorch**************************
+当使用git clone下来的工程中带有submodule时，初始的时候，submodule的内容并不会自动下载下来的，此时，只需执行如下命令：
+git submodule update --init --recursive
+其中：recursive用来循环下载子模块
+因此：
+git clone --recursive https://github.com/pytorch/pytorch  #git下来的是最新版本
+git checkout v1.0.1 #checkout到自己需要的版本，如1.0.1
+cd pytorch
+# if you are updating an existing checkout
+git submodule sync //更新submodule的URL
+git submodule update --init --recursive  # 执行更新第三方库，确保安装成功
+mkdir build
+cd build
+python ../tools/build_libtorch.py
+
+**********google chrome**************************
+# 指定代理
+google-chrome --proxy=127.0.0.1:1080
+# 自动
+google-chrome --proxy-auto-detect
+# 不适用代理
+google-chrome --no-proxy-server
+
+**********Anaconda2**************************
+#创建虚拟环境
+conda create --name ztpy3 python=3.6
+
+#删除虚拟环境
+conda remove -n ztpy3 --all
+
+#复制一个虚拟环境
+pip freeze>requirements.txt   保存该环境内的安装包
+pip install -r requirements.txt  安装相关包
+
+**********配置opencv**************************
+可关闭一些选项sudo cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local -D WITH_TBB=ON -D BUILD_NEW_PYTHON_SUPPORT=ON -D WITH_V4L=ON -D WITH_QT=ON -D WITH_OPENGL=ON .. 
+
+#配置库目录
+用gedit打开/etc/ld.so.conf
+加入一行 include /media/aubopiazt/BA6ED4596ED40FCD/ubuntufile/download/opencv/temp_install/lib
+运行sudo ldconfig激活
+
+#配置头文件
+修改bash.bashrc文件 加入
+export  PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/media/aubopiazt/BA6ED4596ED40FCD/ubuntufile/download/opencv/temp_install/lib/pkgconfig
+运行 source /etc/bash.bashrc激活
+
+#测试
+pkg-config opencv --modversion
+
+#查看linux下opencv安装库含路径
+pkg-config opencv --libs
+
+#查看opencv安装版本
+pkg-config opencv --modversion
+
+**********下载github部分文件**************************
+https://github.com/PaddlePaddle/models/tree/release/1.8/PaddleCV/face_detection
+
+**********lftp远程文件传输**************************
+登录服务器：lftp public:11111111@194.168.1.124
+下载：
+下载person/person.zip到当前目录下:
+cd person
+get person.zip ./
+下载整个目录里包含子目录：
+方法1：mget -d person/*
+方法2：mirror person
+
+上传：
+方法1：mput -d person/*
+方法2：mirror -R person
+
+#总结
+put/mput/ 上传文件
+mirror (-R) 下载上传目录
+
+
+**********find_pakage opencv error**************************
+find_pakage opencv error：
+设置OpenCV_DIR:
+1.先安装cmake的qt界面 "sudo apt-get install cmake-gui"
+2.打开cmake-gui界面
+3.我们这是就在Where is the source code 和 where to build binaries 的选项里选择我们的目录刚才建立包含我们程序的文件路径吧。
+   Where is the source code:/home/wave-lwh/opencv-3.0.0
+   where to build binaries:/home/wave-lwh/opencv-3.0.0
+4.我们选择cmake界面中的“Add Entry”选项，按照我下面图中的方式输入信息吧，其中value值就是我OpenCV安装的那个目录。
+   name:OpenCV_DIR
+   Type:PATH
+   value:/home/wave-lwh/opencv-3.0.0/build
+5.单击下面的Configure和Generate
+
+**********段错误信息显示**************************
+dmesg
+
+**********vim命令**************************************
+删除多行：
+1. set nu    显示行号
+2. 1,20d     删除1到20行
+
+查找替换：
+1. %s/from/to/g   将所有from替换成to
+
+**********cmakelist 工程搭建寻找依赖**************************************
+将g2o引入自己的cmake工程：
+# 添加g2o的依赖
+# 因为g2o不是常用库，要添加它的findg2o.cmake文件
+LIST( APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake_modules )
+SET( G2O_ROOT /usr/local/include/g2o )
+FIND_PACKAGE( G2O )
+# CSparse
+FIND_PACKAGE( CSparse )
+INCLUDE_DIRECTORIES( ${G2O_INCLUDE_DIR} ${CSPARSE_INCLUDE_DIR} )
+同时，在代码根目录下新建cmake_modules文件夹，把g2o代码目录下的cmake_modules里的东西都拷进来，保证cmake能够顺利找到g2o
+
+
+**********sudo source 找不到指令**************************************
+sudo -s
+
+
+**********git remote**************************************
+…or create a new repository on the command line:
+echo "# toolkit" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin git@github.com:AUbopiazt/toolkit.git
+git push -u origin main
+                
+
+…or push an existing repository from the command line:
+
+git remote add origin git@github.com:AUbopiazt/toolkit.git
+git branch -M main
+git push -u origin main
+
+如果报错 ：
+sign_and_send_pubkey: signing failed: agent refused operation
+执行
+eval "$(ssh-agent -s)"
+ssh-add
+
